@@ -3,12 +3,14 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue';
 import HelloPinia from './components/HelloPinia.vue';
+import TestPinia from './components/TestPinia.vue';
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <HelloPinia msg="Hello pinia" />
+  <HelloPinia msg="使用setup函数" />
+  <TestPinia />
 </template>
 
 <style>

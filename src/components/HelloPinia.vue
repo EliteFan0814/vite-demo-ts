@@ -1,4 +1,5 @@
 <script lang="ts">
+// 使用 setup 函数方式来使用组合式api
 // 导入全局状态userStore
 import { userStore } from '../stores/user';
 import { storeToRefs } from 'pinia';
@@ -12,27 +13,45 @@ export default {
   },
   setup() {
     const store = userStore();
-    const { userLastName, userFirstName } = storeToRefs(store);
+    // 监听store的改变
+    store.$subscribe((mutation, state) => {
+      console.log('HelloPinia', mutation, state);
+    });
+    const { userLastName, userFirstName, userAge, userAddress } =
+      storeToRefs(store);
     return {
       userLastName,
       userFirstName,
+      userAge,
+      userAddress,
     };
   },
 };
 </script>
 
 <template>
-  <div class="hello-wrap">
-    <h1>{{ msg }}</h1>
-    <h2>{{userLastName}}</h2>
-    <h2>{{userFirstName}}</h2>
+  <div class="test-wrap">
+    <h3>{{ msg }}</h3>
+    <table border="1">
+      <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>地址</th>
+      </tr>
+      <tr>
+        <td>{{ userLastName }}{{ userFirstName }}</td>
+        <td>{{ userAge }}</td>
+        <td>{{ userAddress }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.hello-wrap {
-  h1 {
-    color: red;
+.test-wrap {
+  border: 1px solid red;
+  table {
+    border-collapse: collapse;
   }
 }
 </style>
