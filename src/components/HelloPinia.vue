@@ -11,10 +11,11 @@ export default {
     },
   },
   setup() {
-    const store = useStore();
-    const { name, doubleCount } = storeToRefs(store);
+    const store = userStore();
+    const { userLastName, userFirstName } = storeToRefs(store);
     return {
-      // store,
+      userLastName,
+      userFirstName,
     };
   },
 };
@@ -23,7 +24,8 @@ export default {
 <template>
   <div class="hello-wrap">
     <h1>{{ msg }}</h1>
-    <h1>111</h1>
+    <h2>{{userLastName}}</h2>
+    <h2>{{userFirstName}}</h2>
   </div>
 </template>
 

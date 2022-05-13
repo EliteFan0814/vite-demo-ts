@@ -10,7 +10,7 @@ defineProps<{ msg: string }>();
 const count = ref(0);
 // const userName = userInfo.getters.getUserName;
 // const userName = userInfo.store.userLastName;
-console.log('userInfo.store', userInfo.value);
+console.log('userInfo.store', userInfo.userFirstName);
 </script>
 
 <template>
