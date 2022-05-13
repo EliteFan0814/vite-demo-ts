@@ -11,7 +11,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(userStore, ['userAge', 'userAddress', 'getUserCar']),
+    ...mapState(userStore, ['userAge', 'userAddress', 'getUserCar','getSchool']),
     ...mapState(userStore, {
       myFirstName: 'userFirstName',
       myLastName: 'userLastName',
@@ -34,12 +34,14 @@ export default {
         <th>姓名</th>
         <th>年龄</th>
         <th>地址</th>
+        <th>学校</th>
         <th>车</th>
       </tr>
       <tr>
         <td>{{ store.getUserName }}</td>
         <td>{{ userAge }}</td>
         <td>{{ userAddress }}</td>
+        <td>{{ getSchool }}</td>
         <td>{{ getUserCar }}</td>
       </tr>
     </table>

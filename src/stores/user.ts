@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { studyStore } from './study';
 export const userStore = defineStore('userStore', {
   state: () => {
     return {
@@ -6,7 +7,7 @@ export const userStore = defineStore('userStore', {
       userFirstName: '培超',
       userAge: 28,
       userAddress: '中国',
-      car: '五菱宏光mini',
+      car: '路虎揽胜',
     };
   },
   getters: {
@@ -15,6 +16,10 @@ export const userStore = defineStore('userStore', {
     },
     getUserCar(state) {
       return state.car + '白色';
+    },
+    getSchool() {
+      const study = studyStore();
+      return study.school;
     },
   },
   actions: {
