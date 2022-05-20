@@ -8,10 +8,16 @@ export default {
     return {
       title: '这是用来测试pinia的',
       store: userStore(),
+      ht:'hahahaah'
     };
   },
   computed: {
-    ...mapState(userStore, ['userAge', 'userAddress', 'getUserCar','getSchool']),
+    ...mapState(userStore, [
+      'userAge',
+      'userAddress',
+      'getUserCar',
+      'getSchool',
+    ]),
     ...mapState(userStore, {
       myFirstName: 'userFirstName',
       myLastName: 'userLastName',
@@ -29,6 +35,7 @@ export default {
 <template>
   <div class="test-wrap">
     <h3>{{ title }}</h3>
+    <p v-html="ht"></p>
     <table border="1">
       <tr>
         <th>姓名</th>
