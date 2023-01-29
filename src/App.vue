@@ -4,6 +4,7 @@
 import HelloWorld from './components/HelloWorld.vue';
 import HelloPinia from './components/HelloPinia.vue';
 import TestPinia from './components/TestPinia.vue';
+import VueTest from './components/VueTest.vue';
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import TestPinia from './components/TestPinia.vue';
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
   <HelloPinia msg="使用setup函数" />
   <TestPinia />
+  <VueTest/>
 </template>
 
 <style>
