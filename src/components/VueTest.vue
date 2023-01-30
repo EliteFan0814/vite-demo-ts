@@ -2,19 +2,39 @@
 export default {
   data() {
     return {
-      count: 0,
+      question: undefined,
+      answer: 'Questions usually contain a question mark. ;-)',
+      answerImg:null
     };
   },
+  watch: {
+    question(newQuestion, oldQuestion) {
+      if (newQuestion.includes('?')) {
+        this.getAnswer();
+      }
+    },
+  },
   methods: {
-    click: this.$_.debounce(function () {
-      // ... 对点击的响应 ...
-      this.count++;
-    }, 1500),
+    async getAnswer() {
+      this.answer = 'thinking...';
+      try {
+        const res = await fetch('https://yesno.wtf/api');
+        const { answer, forced, image } = await res.json();
+        this.answer = answer
+        this.answerImg = image
+      } catch (e) {
+        this.answer = 'This fucking question has no answer!';
+      }
+    },
   },
 };
 </script>
 
 <template>
-  <div>{{ count }}</div>
-  <button @click="click">增加1</button>
+  <p>
+    Ask a yes/no question:
+    <input v-model="question" />
+  </p>
+  <p>{{ answer }}</p>
+  <p><img :src="answerImg"></p>
 </template>

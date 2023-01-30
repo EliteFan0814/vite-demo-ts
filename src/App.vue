@@ -4,15 +4,15 @@
 import HelloWorld from './components/HelloWorld.vue';
 import HelloPinia from './components/HelloPinia.vue';
 import TestPinia from './components/TestPinia.vue';
-import VueTest from './components/VueTest.vue';
+import VueTest from './components/VueTestC.vue';
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <!-- <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
   <HelloPinia msg="使用setup函数" />
-  <TestPinia />
-  <VueTest/>
+  <TestPinia /> -->
+  <VueTest />
 </template>
 
 <style>
